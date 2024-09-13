@@ -1,7 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use  App\Http\Controllers\StudentController;
+use  App\Http\Controllers\HomeController;
+use  App\Http\Controllers\TeacherController;
+use  App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Providers\RouteServiceProvider;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +18,43 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
-
+// */
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
+
+Route::any('/about', [HomeController::class, 'about'])->name('about');
+Route::any('/contact-us', [HomeController::class, 'contact'])->name('contact');
+Route::any('/classes', [HomeController::class, 'classes'])->name('class');
+Route::any('/tutor', [HomeController::class, 'tutor'])->name('tutor');
+Route::any('/course', [HomeController::class, 'course'])->name('courses');
+
+
+Route::middleware(['auth', 'role:student'])->group(function () {
+    Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
+
+});
+
+Route::middleware(['auth', 'role:teacher'])->group(function () {
+    Route::get('/teacher/dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
+
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+
+
+});
+
+
+
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

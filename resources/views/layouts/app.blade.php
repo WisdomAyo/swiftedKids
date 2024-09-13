@@ -11,8 +11,32 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <link rel="stylesheet" href="{{asset("assets/css/bootstrap.min.css")}}">
+
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="{{asset("assets/plugins/fontawesome/css/fontawesome.min.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/plugins/fontawesome/css/all.min.css")}}">
+
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{{asset("assets/css/owl.carousel.min.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/css/owl.theme.default.min.css")}}">
+
+        <!-- Slick CSS -->
+        <link rel="stylesheet" href="{{asset("assets/plugins/slick/slick.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/plugins/slick/slick-theme.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/bootstrap-icons/bootstrap-icons.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/css/glightbox.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/css/tiny-slider.css")}}">
+        <!-- Aos CSS -->
+        <link rel="stylesheet" href="{{asset("assets/plugins/aos/aos.css")}}">
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{{asset("/assets/css/style.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/css/style1.css")}}">
+
+
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
