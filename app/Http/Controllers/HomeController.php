@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -29,13 +30,22 @@ class HomeController extends Controller
     public function tutor()
     {
 
-        return view('home.tutors');
+        $teachers = User::where('role', 'teacher')->paginate(10);
+
+        return view('home.tutors', compact('teachers'));
 
 
     }
 
-    public function contact()
-    {
+     public function becomeTeacher(){
+
+        return view('home.become-teacher');
+     }
+
+
+
+    public function contact(){
+
 
         return view('home.contact-us');
 

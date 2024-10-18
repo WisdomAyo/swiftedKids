@@ -21,12 +21,15 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+
     ];
 
     protected $routeMiddleware = [
         // Other middleware
-        'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'role' => \App\Http\Middleware\RoleMiddleware::class,
+        'teacher.profile.completed' => \App\Http\Middleware\CheckTeacherProfileCompletion::class,
+        'admin.role' => \App\Http\Middleware\AdminAuthMiddleware::class,
+
     ];
 
     /**

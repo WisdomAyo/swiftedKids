@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../New folder"
+		},
+		{
+			"path": "../../../../../stumak-admin"
+		},
+		{
+			"path": "../../../../../test"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "New folder",
+		"liveServer.settings.port": 5501
+	}
+}

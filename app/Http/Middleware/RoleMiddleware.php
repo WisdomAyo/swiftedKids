@@ -24,7 +24,9 @@ class RoleMiddleware
 
         if (!$request->user() || !$request->user()->hasRole($role)) {
             // Optionally, redirect to an unauthorized page or throw an exception
-            return redirect('/unauthorized');
+           // return redirect('/unauthorized');
+
+            return back()->withErrors(['email' => 'Invalid credentials.']);
         }
 
 

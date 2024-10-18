@@ -72,12 +72,16 @@
 
     <div class="vs-menu-wrapper">
         <div class="vs-menu-area text-center">
+
             <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="{{asset('assets/img/logo.png')}}" alt="SwiftEgdeKids"></a>
+                {{-- <a href="index.html"><img src="{{asset('assets/img/logo.png')}}" alt="SwiftEgdeKids"></a> --}}
+
+
             </div>
             <div class="vs-mobile-menu">
                 <ul>
+                    <li> </li>
                     <li class="menu-item-has-children">
                         <a href="/">Home</a>
                     </li>
@@ -94,15 +98,18 @@
                 </ul>
             </div>
         </div>
-    </div><!--==============================
+    </div>
+
+
+    <!--==============================
     Sidemenu
 ============================== -->
-    <div class="sidemenu-wrapper d-none d-lg-block  ">
+    {{-- <div class="sidemenu-wrapper d-none d-lg-block  ">
         <div class="sidemenu-content">
             <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
             <div class="widget  ">
                 <div class="widget-about">
-                    <div class="footer-logo"><img src="assets/img/logo.svg" alt="Kiddino"></div>
+                    <div class="footer-logo"><img src="assets/img/logo.svg" alt=""></div>
                     <p class="mb-0">We are constantly expanding the range of services offered, taking care of children of all ages.</p>
                 </div>
             </div>
@@ -154,9 +161,8 @@
                 </div>
             </div>
         </div>
-    </div><!--==============================
-    Popup Search Box
-    ============================== -->
+    </div><!--============================== --}}
+
     <div class="popup-search-box d-none d-lg-block  ">
         <button class="searchClose"><i class="fal fa-times"></i></button>
         <form action="#">
@@ -168,7 +174,7 @@
         Header Area
     ==============================-->
     <header class="vs-header header-layout1">
-        <div class="header-top">
+        {{-- <div class="header-top">
             <div class="container">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-auto d-none d-lg-block">
@@ -189,7 +195,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="sticky-wrap">
             <div class="sticky-active">
                 <div class="container">
@@ -197,8 +203,9 @@
                         <div class="col-8 col-sm-auto">
                             <div class="header-logo">
                                 <a href="index.html">
-                                    <img src="assets/img/logo.png" alt="logo">
+                                    <img src="{{asset('assets/img/logo.png')}}" alt="logo">
                                 </a>
+
                             </div>
                         </div>
                         <div class="col text-end text-lg-center">
@@ -208,7 +215,7 @@
                                         <a href="/">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('about')}}">About Us</a>
+                                        <a href="{{route('becomeTeacher')}}">Become A Teacher</a>
                                     </li>
                                     <li>
                                         <a href="{{route('courses')}}">Courses</a>
@@ -228,17 +235,76 @@
                             </nav>
                             <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fal fa-bars"></i></button>
                         </div>
-                        <div class="col-auto  d-none d-lg-block">
+                        {{-- <div class="col-auto  d-none d-lg-block">
                             <div class="header-icons">
                                 <button class="simple-icon sideMenuToggler"><i class="far fa-bars"></i></button>
                             </div>
+                        </div> --}}
+                        <!-- Check if the user is authenticated -->
+                        @auth
+                        {{-- @if (Auth::user()->role !== 'admin') --}}
+
+
+                        <!-- Profile Dropdown for Logged-In Users -->
+                        <div class="dropdown ms-1 ms-lg-0 col-auto d-none d-xl-block">
+                            <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="avatar-img rounded-circle" src="{{auth()->user()->profile_image  ? asset('storage/' . auth()->user()->profile_image) : asset('assets/images/avatar/default.jpg')}}" alt="" width="50" height="50">
+                            </a>
+                            <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                                <!-- Profile Info -->
+                                <li class="px-3 mb-3 sub-menu">
+                                    <div class="d-flex align-items-center">
+                                        <!-- Avatar -->
+                                        <div class="avatar me-3">
+                                            <img class="avatar-img rounded-circle shadow" src="{{ asset('assets/dashboard/images/avatar/01.jpg') }}" alt="avatar">
+                                        </div>
+                                        <div>
+                                            <a class="h6" href="#">{{ Auth::user()->name }}  <span class="small m-0">{{ Auth::user()->role === 'teacher' ? 'Teacher' : 'Student' }}</span> </a> <!-- User's name -->
+                                            <!-- Display if the user is a teacher or student -->
+                                            <p class="small m-0">{{ Auth::user()->email }}</p> <!-- User's email -->
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <!-- Links -->
+                                <li>
+                                    <a class="dropdown-item" href="{{ Auth::user()->role === 'teacher' ? route('teacher.dashboard') : route('student.dashboard') }}">
+                                        <i class="bi bi-person fa-fw me-2"></i>Dashboard
+                                    </a>
+                                </li>
+                                @if(Auth::user()->role === 'teacher')
+                                <!-- Only show the "Add Course" link if the user is a teacher -->
+                                <li>
+                                    <a class="dropdown-item" href="">
+                                        <i class="bi bi-gear fa-fw me-2"></i>Add Course
+                                    </a>
+                                </li>
+                                @endif
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+                                <li>
+                                    <a class="dropdown-item bg-danger-soft-hover" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="bi bi-power fa-fw me-2"></i>Sign Out
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                            </ul>
                         </div>
-                        <div class="col-auto d-none d-xl-block">
-                            <a href="contact.html" class="vs-btn sideMenuToggler">Apply Today</a>
-                        </div>
+                        {{-- @endif --}}
+                        @endauth
+
+
+<!-- Show the "Apply Today" button for guests (not logged in) -->
+@guest
+<div class="col-auto d-none d-xl-block">
+    <a href="{{ route('login') }}" class="vs-btn">Apply Today</a>
+</div>
+@endguest
                     </div>
                 </div>
             </div>
         </div>
-    </header><!--==============================
-      Hero Area
+    </header>

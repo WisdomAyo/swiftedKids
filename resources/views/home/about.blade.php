@@ -1,9 +1,6 @@
 @extends('home.main')
 @section('content')
 
-
-About Area
-==============================-->
 <section class=" space-top space-extra-bottom">
     <div class="container">
         <div class="row align-items-center justify-content-between flex-row-reverse">

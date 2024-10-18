@@ -17,11 +17,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+
+        protected $fillable = [
+            'name', 'email', 'password',  'phone_number', 'dob', 'gender', 'bio', 'profile_image', 'role', 'nin',
+        ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -45,13 +45,36 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsToMany(Role::class);
     }
 
     public function hasRole(string $role): bool
     {
         // Since $this->role is a string, directly compare it
         return $this->role === $role;
+    }
+
+    public function specialties(){
+        return $this->hasMany(Specialty::class);
+    }
+
+    public function videos(){
+        return $this->hasMany(Video::class);
+    }
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'skill_user'); // Explicitly define the pivot table
+    }
+
+    public function education(){
+        return $this->hasMany(Education::class);
+    }
+
+    public function socialMediaHandles()
+    {
+        // Ensure that this returns an empty collection if there are no related records
+        return $this->hasMany(SocialMediaHandle::class);
     }
 
 }

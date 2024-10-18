@@ -6,7 +6,7 @@
 
         <!-- Slide 1-->
         <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:in; kenburnsscale:1.1;">
-            <img width="1920" height="770" src="assets/img/hero/hero-1-1.jpg" class="ls-bg" alt="bg" decoding="async">
+            <img width="1920" height="770" src="assets/img/hero/hero-1-12.jpeg" class="ls-bg" alt="bg" decoding="async">
             <ls-layer style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; border-style:solid; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; width:255px; height:255px; border-width:60px 60px 60px 60px; border-color:#FFD600; border-radius:50% 50% 50% 50%; top:126px; left:740px; z-index:4; -webkit-background-clip:border-box;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="static:forever;">
             </ls-layer>
             <div style="font-size:36px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; width:711px; height:410px; left:312px; top:213px; background-color:#490D59; border-radius:213px 206px 50px 213px; z-index:5; -webkit-background-clip:border-box;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="static:forever;"></div>
@@ -40,7 +40,7 @@
 
         <!-- Slide 2-->
         <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:out; kenburnsscale:1.1;">
-            <img width="1920" height="770" src="assets/img/hero/hero-1-2.jpg" class="ls-bg" alt="bg" decoding="async">
+            <img width="1920" height="770" src="assets/img/hero/hero-1-11.jpeg" class="ls-bg" alt="bg" decoding="async">
             <h1 style="font-size:60px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:60px; color:#ffffff; top:284px; left:312px; width:711px; -webkit-background-clip:border-box;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
                 Special Child Session
             </h1>
@@ -69,7 +69,7 @@
 
         <!-- Slide 3-->
         <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:in; kenburnsscale:1.1;">
-            <img width="1920" height="770" src="assets/img/hero/hero-1-3.jpg" class="ls-bg" alt="bg" decoding="async">
+            <img width="1920" height="770" src="assets/img/hero/hero-1-13.jpg" class="ls-bg" alt="bg" decoding="async">
             <h1 style="font-size:60px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:60px; color:#ffffff; top:284px; left:312px; width:711px; -webkit-background-clip:border-box;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
                 Best Children Study
             </h1>
@@ -456,7 +456,7 @@ Service Area
         ==============================-->
         <section class=" space-extra-bottom">
             <div class="container">
-                <div class="row gx-80">
+                <div class="row">
                     <div class="col-lg-6 col-xxl-auto pb-3 pb-xl-0">
                         <div class="img-box3">
                             <div class="img-1 mega-hover">
@@ -588,25 +588,4 @@ Service Area
                 </div>
             </div>
         </section><!--==============================
-        Newsletter Area
-        ==============================-->
-        <section class="form-wrap1 space" data-bg-src="assets/img/bg/newsletter-bg-1-1.png">
-            <div class="container">
-                <div class="title-area text-center">
-                    <div class="mb-3 pb-1"><img src="assets/img/icon/bell-1-1.svg" alt="bell icon"></div>
-                    <p class="sec-text text-title font-title">Keep up to date with the latest news and offers</p>
-                    <h2 class="sec-title2">Sign up for our newsletter</h2>
-                </div>
-                <form action="#" class="form-style1">
-                    <div class="form-group">
-                        <input type="email" placeholder="Enter Your Email Address...">
-                        <button class="vs-btn" type="submit">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-
-
-
 @endsection
